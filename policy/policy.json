@@ -1,0 +1,49 @@
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Resource": [
+        "ec2:CreateFleet",
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateTags",
+        "ec2:DeleteLaunchTemplate",
+        "ec2:RunInstances",
+        "ec2:TerminateInstances",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypeOfferings",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSpotPriceHistory",
+        "ec2:DescribeSubnets",
+        "pricing:GetProducts",
+        "ssm:GetParameter"
+      ],
+      "Action": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Resource": "${KarpenterInterruptionQueueArn}",
+      "Action": [
+        "sqs:DeleteMessage",
+        "sqs:GetQueueUrl",
+        "sqs:GetQueueAttributes",
+        "sqs:ReceiveMessage"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Resource": "${KarpenterNodeRoleArn}",
+      "Action": "iam:PassRole"
+    },
+    {
+      "Effect": "Allow",
+      "Resource": "${ClusterArn}",
+      "Action": "eks:DescribeCluster"
+    }
+  ]
+}
