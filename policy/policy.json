@@ -1,10 +1,10 @@
-
 {
   "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Resource": [
+      "Resource": "*",
+      "Action": [
         "ec2:CreateFleet",
         "ec2:CreateLaunchTemplate",
         "ec2:CreateTags",
@@ -22,8 +22,7 @@
         "ec2:DescribeSubnets",
         "pricing:GetProducts",
         "ssm:GetParameter"
-      ],
-      "Action": "*"
+      ]
     },
     {
       "Effect": "Allow",
